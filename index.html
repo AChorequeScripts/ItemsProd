@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos</title>
+    <link rel="stylesheet" href="https://bootswatch.com/4/cerulean/bootstrap.min.css"> 
+    <style>
+        
+        #product-card {
+            display: none;
+        }
+        
+        #message {
+            padding: 0.5rem; 
+            border-radius: 0.25rem; 
+            margin-bottom: 1rem; 
+            display: none; 
+        }
+        
+        .remove-btn {
+            background: none; 
+            border: none; 
+            color: gray; 
+            font-size: 1.5rem; 
+            cursor: pointer; 
+        }
+        .remove-btn:hover {
+            color: darkgray; 
+        }
+    </style>
+</head>
+
+<body>
+    
+    <nav class="navbar navbar-light bg-light p-2">
+        <span class="navbar-brand">InfoMarket</span>
+    </nav>
+
+    <div class="container">
+        <div id="App" class="row mt-4">
+            
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header">Nuevo Producto</div>
+                    <div class="card-body">
+                        <h4 class="card-title">Detalles del Producto</h4>
+                        <form id="frm-producto" class="d-grid gap-3 needs-validation" novalidate>
+                            
+                            <div class="form-group mb-3">
+                                <label for="nom">Nombre:</label>
+                                <input id="nom" type="text" name="nombre" class="form-control form-control-sm" autocomplete="off" required>
+                                <div class="valid-feedback">¡Buen nombre!</div>
+                                <div class="invalid-feedback">Introduzca un nombre para el producto deseado.</div>
+                            </div>
+
+                            <div class="form-group mb-3">
+                                <label for="pre">Precio:</label>
+                                <div class="input-group">
+                                    <span class="input-group-text">Q.</span>
+                                    <input id="pre" type="number" name="precio" step="0.01" class="form-control" aria-label="Precio" required>
+                                    <div class="invalid-feedback">Indique el precio.</div>
+                                </div>
+                            </div>
+
+                            <div class="form-group mb-3">
+                                <label for="anio">Año:</label>
+                                <input id="anio" type="number" name="anyo" min="1900" max="2099" step="1" value="2024" class="form-control" required>
+                                <div class="invalid-feedback">Por favor, resalte el año para el producto.</div>
+                            </div>
+
+                            <div class="form-group d-grid">
+                                <button id="btn-guardar" type="submit" class="btn btn-primary btn-block" style="border-radius: 3px;">Agregar</button>
+                            </div>                                    
+    
+                        </form>
+
+                        <div id="message" class="col-12 mb-3"></div>
+                    </div>
+                </div>
+            </div>
+ 
+            <div class="col-md-8">
+                <div id="product-card" class="card border rounded bg-light"> 
+                    <div class="card-body p-2"> 
+                        <div class="product-list" id="product-list"></div> 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="prod.js"></script> 
+</body>
+</html>
